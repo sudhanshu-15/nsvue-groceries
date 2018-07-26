@@ -5,6 +5,7 @@
 
     <FlexboxLayout>
       <StackLayout class="form">
+        <image src="res://logo_login" />
         <TextField hint="Email Address" keyboardType="email" autocorrect="false" class="input input-border"></TextField>
         <TextField hint="Password" secure="true" class="input input-border"></TextField>
         <Button text="Sign in" class="btn btn-primary"></Button>
