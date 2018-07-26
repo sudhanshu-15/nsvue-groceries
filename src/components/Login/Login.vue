@@ -4,7 +4,10 @@
     </ActionBar>
 
     <StackLayout>
-      <label text="hello world" />
+      <TextField hint="Email Address" keyboardType="email" autocorrect="false" />
+      <TextField hint="Password" secure="true" />
+      <Button text="Sign in" />
+      <Button text="Sign up for Groceries" />
     </StackLayout>
 
   </Page>
