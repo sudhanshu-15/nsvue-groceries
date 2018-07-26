@@ -4,10 +4,10 @@
     </ActionBar>
 
     <FlexboxLayout>
-      <StackLayout>
-        <TextField hint="Email Address" keyboardType="email" autocorrect="false"></TextField>
-        <TextField hint="Password" secure="true"></TextField>
-        <Button text="Sign in"></Button>
+      <StackLayout class="form">
+        <TextField hint="Email Address" keyboardType="email" autocorrect="false" class="input input-border"></TextField>
+        <TextField hint="Password" secure="true" class="input input-border"></TextField>
+        <Button text="Sign in" class="btn btn-primary"></Button>
         <Button text="Sign up for Groceries"></Button>
       </StackLayout>
     </FlexboxLayout>
@@ -30,5 +30,21 @@ StackLayout {
   width: 300;
   padding: 10 16;
   background-color: #f0f0f0;
+}
+Image {
+  margin-bottom: 20;
+  height: 70;
+}
+Button, TextField {
+  margin-bottom: 10;
+}
+.btn-primary {
+  background-color: #CB1D00;
+  margin-left: 0;
+  margin-right: 0;
+}
+TextField {
+  placeholder-color: #C4AFB4;
+  color: black;
 }
 </style>
