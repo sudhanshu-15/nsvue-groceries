@@ -103,15 +103,15 @@ const config = (platform, launchArgs) => {
       // Extract CSS to separate file
       new ExtractTextPlugin({filename: `app.${platform}.css`}),
 
-      // Optimize CSS output
-      new OptimizeCssAssetsPlugin({
-        cssProcessor: require('cssnano'),
-        cssProcessorOptions: {
-          discardComments: { removeAll: true },
-          normalizeUrl: false
-        },
-        canPrint: false,
-      }),
+      // // Optimize CSS output
+      // new OptimizeCssAssetsPlugin({
+      //   cssProcessor: require('cssnano'),
+      //   cssProcessorOptions: {
+      //     discardComments: { removeAll: true },
+      //     normalizeUrl: false
+      //   },
+      //   canPrint: false,
+      // }),
 
       // Minify JavaScript code
       new webpack.optimize.UglifyJsPlugin({

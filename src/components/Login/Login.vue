@@ -18,3 +18,17 @@
 <script>
   
 </script>
+
+<style scoped>
+FlexboxLayout {
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-image: url("res://bg_login");
+}
+StackLayout {
+  width: 300;
+  padding: 10 16;
+  background-color: #f0f0f0;
+}
+</style>
