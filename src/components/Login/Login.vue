@@ -6,10 +6,10 @@
     <FlexboxLayout>
       <StackLayout class="form">
         <image src="res://logo_login" />
-        <TextField hint="Email Address" keyboardType="email" autocorrect="false" class="input input-border" :text="email"></TextField>
+        <TextField hint="Email Address" keyboardType="email" autocorrect="false" class="input input-border" v-model="email"></TextField>
         <TextField hint="Password" secure="true" class="input input-border"></TextField>
-        <Button text="Sign in" class="btn btn-primary" @tap="submit"></Button>
-        <Button text="Sign up for Groceries"></Button>
+        <Button :text="isLogginIn ? 'Sign in' : 'Sign up'" class="btn btn-primary" @tap="submit"></Button>
+        <Button :text="isLogginIn ? 'Sign up' : 'Back to login'" @tap="toggleDisplay"></Button>
       </StackLayout>
     </FlexboxLayout>
 
@@ -21,11 +21,15 @@
     data () {
       return {
         email: "nativescriptrocks@progress.com",
+        isLogginIn: true,
       }
     },
     methods: {
       submit() {
         alert("You are using:" + this.email);
+      },
+      toggleDisplay() {
+        this.isLogginIn = !this.isLogginIn;
       }
     }
   }
