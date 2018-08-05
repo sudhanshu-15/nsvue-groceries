@@ -8,7 +8,7 @@
         <image src="res://logo_login" />
         <TextField hint="Email Address" keyboardType="email" autocorrect="false" class="input input-border"></TextField>
         <TextField hint="Password" secure="true" class="input input-border"></TextField>
-        <Button text="Sign in" class="btn btn-primary"></Button>
+        <Button text="Sign in" class="btn btn-primary" @tap="submit"></Button>
         <Button text="Sign up for Groceries"></Button>
       </StackLayout>
     </FlexboxLayout>
@@ -17,7 +17,13 @@
 </template>
 
 <script>
-  
+  export default {
+    methods: {
+      submit() {
+        console.log("Hello");
+      }
+    }
+  }
 </script>
 
 <style scoped>
