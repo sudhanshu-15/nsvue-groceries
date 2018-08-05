@@ -6,8 +6,8 @@
     <FlexboxLayout>
       <StackLayout class="form">
         <image src="res://logo_login" />
-        <TextField hint="Email Address" keyboardType="email" autocorrect="false" class="input input-border" v-model="email"></TextField>
-        <TextField hint="Password" secure="true" class="input input-border"></TextField>
+        <TextField hint="Email Address" keyboardType="email" autocorrect="false" class="input input-border" v-model="user.email"></TextField>
+        <TextField hint="Password" secure="true" class="input input-border" v-model="user.password"></TextField>
         <Button :text="isLogginIn ? 'Sign in' : 'Sign up'" class="btn btn-primary" @tap="submit"></Button>
         <Button :text="isLogginIn ? 'Sign up' : 'Back to login'" @tap="toggleDisplay"></Button>
       </StackLayout>
@@ -17,16 +17,17 @@
 </template>
 
 <script>
+  import User from "../../models/Users.js";
   export default {
     data () {
       return {
-        email: "nativescriptrocks@progress.com",
+        user: User,
         isLogginIn: true,
       }
     },
     methods: {
       submit() {
-        alert("You are using:" + this.email);
+        alert("You are using:" + this.user.email);
       },
       toggleDisplay() {
         this.isLogginIn = !this.isLogginIn;
