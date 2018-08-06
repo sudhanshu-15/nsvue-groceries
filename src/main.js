@@ -4,6 +4,7 @@ import VueAxios from 'vue-axios'
 import Login from './components/Login/Login';
 
 import store from './store';
+import router from './router';
 
 import './styles.scss';
 
@@ -12,9 +13,6 @@ Vue.config.silent = false;
 Vue.use(VueAxios, axios)
 
 new Vue({
-
-  render: h => h(Login),
-
+  router,
   store,
-
 }).$start();

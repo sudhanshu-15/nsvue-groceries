@@ -21,13 +21,15 @@ export default class UserService {
         }));
     }
 
-    getCommonHeaders() {
-        let config = {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': Config.authHeader,
-            }
-        }
-        return config;
+    login(user) {
+        return this.instance.post(this.config.apiUrl + "user/" + this.config.appKey + "/login", 
+            JSON.stringify({
+                username: user.email,
+                password: user.password
+            })
+        ).then((response) => {
+            console.log(response);
+            this.config.token = response.data._kmd.authtoken;
+        });
     }
 }

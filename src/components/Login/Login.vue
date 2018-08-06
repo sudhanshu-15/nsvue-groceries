@@ -36,7 +36,9 @@
         }
       },
       login() {
-
+        userService.login(this.user)
+        .then(() => this.$router.push('/list'))
+        .catch((error) => alert("Unfortunately we could not find your account." + error));
       },
       signUp() {
         userService.register(this.user)
