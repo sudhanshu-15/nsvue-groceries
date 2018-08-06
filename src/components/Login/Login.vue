@@ -18,6 +18,8 @@
 
 <script>
   import User from "../../models/Users.js";
+  import UserService from "../../services/UserService.js";
+  const userService = new UserService();
   export default {
     data () {
       return {
@@ -27,7 +29,23 @@
     },
     methods: {
       submit() {
-        alert("You are using:" + this.user.email);
+        if (this.isLogginIn) {
+          this.login();
+        } else {
+          this.signUp();
+        }
+      },
+      login() {
+
+      },
+      signUp() {
+        userService.register(this.user)
+        .then((response) => {
+          alert("Your account was successfully created.");
+          this.toggleDisplay();
+          }
+        )
+        .catch((error) => console.log(error));
       },
       toggleDisplay() {
         this.isLogginIn = !this.isLogginIn;
