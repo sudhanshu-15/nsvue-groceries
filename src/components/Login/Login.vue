@@ -1,5 +1,5 @@
 <template>
-  <Page class="page">
+  <Page class="page" actionBarHidden="true">
     <ActionBar class="action-bar" title="Groceries">
     </ActionBar>
 
