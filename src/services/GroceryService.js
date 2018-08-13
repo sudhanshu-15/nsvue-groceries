@@ -26,15 +26,28 @@ export default class GroceryService {
         var params = "sort=_kmd.lmt=1";
         console.log("Base URL: " + baseUrl);
         console.log("Params: " + JSON.stringify(params));
-        return this.instance.get(this.baseUrl).then((response) => {
+        return this.instance.get(this.baseUrl, params).then((response) => {
             let groceryList = [];
+            console.log("List: " + JSON.stringify(response.data));
             response.data.forEach(grocery => {
-                groceryList.push(new Grocery(grocery._id, grocery.name));
+                groceryList.push(new Grocery(grocery._id, grocery.Name));
             });
+            console.log("Before return: " + JSON.stringify(groceryList));
             return groceryList;
         }).catch((error) => {
             console.log(error);
             return Error("Unable to get groceries" + error);
+        });
+    }
+
+    add(grocery) {
+        console.log("Grocery received: " + grocery);
+        return this.instance.post(this.baseUrl, JSON.stringify({Name: grocery})).then((response) => {
+            console.log("Response: " + JSON.stringify(response.data._id));
+            console.log("Name: " + response.data.Name);
+            return new Grocery(response.data._id, response.data.Name);
+        }).catch((error) => {
+            return Error("Unable to add grocery");
         });
     }
 }
