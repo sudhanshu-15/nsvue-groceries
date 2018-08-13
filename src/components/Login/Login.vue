@@ -4,7 +4,7 @@
     </ActionBar>
 
     <FlexboxLayout>
-      <StackLayout class="form">
+      <StackLayout class="form" :class="{dark: isLogginIn}">
         <image src="res://logo_login" />
         <TextField hint="Email Address" keyboardType="email" autocorrect="false" class="input input-border" v-model="user.email"></TextField>
         <TextField hint="Password" secure="true" class="input input-border" v-model="user.password"></TextField>
@@ -83,5 +83,12 @@ Button, TextField {
 TextField {
   placeholder-color: #C4AFB4;
   color: black;
+}
+.dark {
+  background-color: #301217;
+}
+
+.dark TextField {
+  color:  #C4AFB4;
 }
 </style>

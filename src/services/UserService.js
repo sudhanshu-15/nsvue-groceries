@@ -1,5 +1,8 @@
 import axios from 'axios';
 import Config from '../shared/config';
+import { setString } from 'tns-core-modules/application-settings'
+
+const tokenKey = "token";
 
 export default class UserService {
     constructor() {
@@ -29,7 +32,7 @@ export default class UserService {
             })
         ).then((response) => {
             console.log(response);
-            this.config.token = response.data._kmd.authtoken;
+             setString(tokenKey, response.data._kmd.authtoken);
         });
     }
 }
